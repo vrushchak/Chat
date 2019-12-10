@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SDA Social Network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+    <div>
+        <h1 th:inline="text">Profile [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+
+    <div>
+        Yours settings
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" name="text" />
+            <input type="text" name="tag" />
+            <input type="file" name="file">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+<!--    Posts-->
+<!--    <div th:each="post : ${posts}">-->
+<!--        <span th:text="${post.id}"></span>-->
+<!--        <span th:text="${post.text}"></span>-->
+<!--        <span th:text="${post.tag}"></span>-->
+<!--        <span th:text="${post.authorName}"></span>-->
+<!--        <span th:if="${post.filename != null}"><img th:src="@{${'/img/' + post.filename}}" /></span>-->
+<!--        <span th:text="${post.filename}"></span>-->
+<!--    </div>-->
+</body>
+</html>
